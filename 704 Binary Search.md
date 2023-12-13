@@ -22,9 +22,7 @@ mid = (l + r) / 2时，如果l + r 大于 INT_MAX(C++内，就是int整型的上
 
 ? 对于二进制的正数来说，右移x位相当于除以2的x几次方，所以右移一位等于➗2，用位运算的好处是比直接相除的操作快
 
-""" This is a python program for LeetCode 704 Binary Search """
-
-
+'''ptyhon
 class Solution(object):
     def search(self, nums, target):
         """
@@ -51,4 +49,4 @@ class Solution(object):
                 return middle
 
         return -1
-
+'''
