@@ -1,0 +1,56 @@
+[997 Squares of Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description/)
+
+名词解释
+non-decreasing order 非递减顺序：就是非严格递增，因为严格递增不允许有重复的，而本题允许重复
+
+解题思路：
+首先想到的就是暴力法：先算平方再排序。
+然后就是双指针法，因为这是一个有序数组，最大值永远在两边。
+[一个动画解释](https://robertocannella-f5b4b.web.app/coding-challenges/sorted-squares)
+
+# 方法一：暴力法
+    原数组中的每个数的平方形成新的数组，然后升序排列。
+    但时间复杂度是 O(n + nlogn)， 可以说是O(nlogn)
+
+```.py
+class Solution(object):
+    def sortedSquares(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        for i in range(len(nums)):  # 是重新做一个新数组好，还是原地改好？
+            nums[i] *= nums[i]  # nums[i] = nums[i] * nums[i]
+        nums.sort()
+        return nums
+```
+
+# 方法二： 双指针法
+
+```.py
+class Solution(object):
+    def sortedSquares(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        # Initialization
+        left = 0
+        right = len(nums) - 1
+        i = len(nums) - 1 # i要先储存最大值
+        # Define a new array with length
+        result = [float('inf')] * len(nums) # 需要提前定义列表，存放结果
+
+        while left <= right:
+            if nums[left] ** 2 < nums[right] ** 2:  # 左右边界进行对比，找出最大值
+                result[i] = nums[right] ** 2
+                right -= 1 # 右指针往左移动
+            else:
+                result[i] = nums[left] ** 2
+                left += 1 # 左指针往右移动
+
+            i -= 1  # 存放结果的指针需要往前平移一位
+        return result
+```
