@@ -1,4 +1,4 @@
-[997 Squares of Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description/)
+[977 Squares of Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/description/)
 
 名词解释
 non-decreasing order 非递减顺序：就是非严格递增，因为严格递增不允许有重复的，而本题允许重复
